@@ -1,0 +1,11 @@
+[project]
+name = "vismcp"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastmcp>=3.2.2",
+    "grpcio>=1.80.0",
+    "grpcio-tools>=1.80.0",
+]

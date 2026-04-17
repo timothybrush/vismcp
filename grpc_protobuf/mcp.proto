@@ -1,0 +1,40 @@
+// Minimal MCP-style service over gRPC with protobuf encoding.
+// One tool: add(a, b) -> a + b
+syntax = "proto3";
+
+package mcp;
+
+service MCP {
+  // Discovery — list available tools.
+  rpc ListTools (ListToolsRequest) returns (ListToolsResponse);
+
+  // Invocation — call a tool by name with typed arguments.
+  rpc CallTool (CallToolRequest) returns (CallToolResponse);
+}
+
+message ListToolsRequest {}
+
+message ToolInfo {
+  string name = 1;
+  string description = 2;
+}
+
+message ListToolsResponse {
+  repeated ToolInfo tools = 1;
+}
+
+message AddArgs {
+  double a = 1;
+  double b = 2;
+}
+
+message CallToolRequest {
+  string name = 1;
+  // Only 'add' is supported in this minimal example.
+  AddArgs add_args = 2;
+}
+
+message CallToolResponse {
+  double result = 1;
+  string error = 2;
+}
