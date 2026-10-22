@@ -3,7 +3,7 @@ MCP Server - Exposes tools, resources, and prompts via the Model Context Protoco
 
 Run with:
     python mcp_server.py                          # stdio transport (for subprocess clients)
-    python mcp_server.py --transport http          # HTTP transport on port 8000
+    python mcp_server.py --transport streamable-http   # HTTP transport on port 8000
 """
 
 import argparse
